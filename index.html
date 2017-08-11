@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Login-Register</title>
+</head>
+<body>
+	<h4>Register</h4>
+	<div>
+		Username
+		<input type="text" id="txtUsername" />
+	</div>
+	<div>
+		Password
+		<input type="password" id="txtPassword" />					
+	</div>
+	<div>
+		Confirm Password
+		<input type="password" id="txtCPassword" />					
+	</div>
+	<div>
+		<button onclick="createUser()">Register</button>
+	</div>
+
+	<h4>List of Users</h4>
+	<table>
+		<thead>
+			<tr>
+				<td>Username</td>
+				<td>Password</td>
+			</tr>
+		</thead>
+		<tbody id="tblUsers"></tbody>
+	</table>
+
+	<script>
+		function createUser(){
+			let username = document.querySelector('#txtUsername').value;
+			let password = document.querySelector('#txtPassword').value;
+			let cpassword = document.querySelector('#txtCPassword').value;
+
+			let user = {
+				"username": username,
+				"password": password,
+				"cpassword": cpassword
+			};
+
+			localStorage.setItem('user', JSON.stringify(user));
+
+			retrieveUser();
+		}
+
+		function retrieveUser(){
+			let users = JSON.parse(localStorage.getItem('user'));
+
+			let html = ``;
+			users.map((user)=>{
+
+			});
+			
+		}
+	</script>
+</body>
+</html>
